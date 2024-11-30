@@ -95,3 +95,77 @@
   justify-content: center;
 }
 
+/*---------------------------------------*/
+.product-link{
+  text-decoration: none !important;
+  color: #000000 !important;
+}
+
+/* Container for the product listing */
+.d-flex {
+  display: flex;
+  flex-wrap: wrap; /* Allow cards to wrap on smaller screens */
+  gap: 20px; /* Space between cards */
+  justify-content: space-between; /* Distribute cards evenly */
+  padding: 20px; /* Add padding around the container */
+}
+
+/* Individual card styling */
+.card {
+  display: flex;
+  flex-direction: column; /* Stack image and details vertically */
+  align-items: center; /* Center-align card content */
+  width: 300px; /* Fixed width for consistency */
+  height: 400px; /* Fixed height for consistency */
+  border: 1px solid #ccc; /* Add a border */
+  border-radius: 8px; /* Rounded corners */
+  overflow: hidden; /* Ensure content doesn’t overflow */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for better visuals */
+  background-color: #fff; /* White background for the card */
+  transition: transform 0.2s ease, box-shadow 0.2s ease; /* Add hover effect */
+}
+
+.card:hover {
+  transform: translateY(-5px); /* Slight lift on hover */
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); /* Deeper shadow on hover */
+}
+
+/* Card image styling */
+.card-img-top {
+  width: 100%; /* Full width of the card */
+  height: 60%; /* Fixed height for images */
+  object-fit: cover; /* Maintain aspect ratio and cover the area */
+  border-bottom: 1px solid #ddd; /* Add a subtle separator */
+}
+
+/* Card body styling */
+.card-body {
+  flex-grow: 1; /* Allow the body to expand as needed */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Space out title and description */
+  padding: 15px; /* Add padding inside the card body */
+  text-align: center; /* Center-align the text */
+}
+
+/* Card title styling */
+.card-title {
+  font-size: 1.2rem; 
+  font-weight: bold;
+  color: #333; 
+  margin-bottom: 10px;
+}
+
+/* Card text styling */
+.card-text {
+  font-size: 1rem; 
+  color: #666; 
+  /*overflow: hidden;
+  text-overflow: ellipsis; 
+  white-space: nowrap; */
+}
+
+
+
+
+
