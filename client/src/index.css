@@ -19,6 +19,7 @@
   box-shadow: 0px 8px 6px -6px gray;
   --webkit-box-shadow:0px 8px 6px -6px gray;
   border-bottom: solid gray !important;
+  
 }
 .nav-link{
   font-weight: 300 !important;
@@ -106,7 +107,8 @@
   display: flex;
   flex-wrap: wrap; /* Allow cards to wrap on smaller screens */
   gap: 20px; /* Space between cards */
-  justify-content: space-between; /* Distribute cards evenly */
+  justify-content:flex-start; 
+  
   padding: 60px; /* Add padding around the container */
 }
 
@@ -171,4 +173,7 @@
   
 }
 
+.col-md-6 >.card-img-top{
+  height: 100%;
+}
 
