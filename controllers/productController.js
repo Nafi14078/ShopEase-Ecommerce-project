@@ -1,5 +1,7 @@
 import productModel from "../models/productModel.js";
-import categoryModel from '../models/categoryModel.js'
+import categoryModel from "../models/categoryModel.js";
+import orderModel from "../models/orderModel.js";
+
 import fs from "fs";
 import slugify from "slugify";
 import braintree from "braintree";
@@ -14,9 +16,6 @@ var gateway = new braintree.BraintreeGateway({
   publicKey: process.env.BRAINTREE_PUBLIC_KEY,
   privateKey: process.env.BRAINTREE_PRIVATE_KEY,
 });
-
-
-
 
 export const createProductController = async (req, res) => {
   try {
@@ -144,13 +143,13 @@ export const deleteProductController = async (req, res) => {
   }
 };
 
-//upate product
+//upate producta
 export const updateProductController = async (req, res) => {
   try {
     const { name, description, price, category, quantity, shipping } =
       req.fields;
     const { photo } = req.files;
-    //validation
+    //alidation
     switch (true) {
       case !name:
         return res.status(500).send({ error: "Name is Required" });
@@ -236,7 +235,7 @@ export const productCountController = async (req, res) => {
 // product list base on page
 export const productListController = async (req, res) => {
   try {
-    const perPage = 3;
+    const perPage = 6;
     const page = req.params.page ? req.params.page : 1;
     const products = await productModel
       .find({})
@@ -258,7 +257,7 @@ export const productListController = async (req, res) => {
   }
 };
 
-//search product
+// search product
 export const searchProductController = async (req, res) => {
   try {
     const { keyword } = req.params;
