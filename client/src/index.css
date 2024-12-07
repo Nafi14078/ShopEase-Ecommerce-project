@@ -176,4 +176,39 @@
 .col-md-6 >.card-img-top{
   height: 100%;
 }
+/* Styles for the category dropdown */
+.dropdown-menu {
+  max-height: 200px; /* Set the height limit for the dropdown */
+  overflow-y: auto; /* Enable vertical scrolling */
+  overflow-x: hidden; /* Prevent horizontal scrolling */
+  scroll-behavior: smooth; /* Smooth scrolling */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: Add a subtle shadow */
+  border-radius: 4px; /* Optional: Rounded edges */
+}
+
+/* Custom scrollbar styling (Optional, for WebKit browsers like Chrome) */
+.dropdown-menu::-webkit-scrollbar {
+  width: 8px; /* Width of the scrollbar */
+}
+
+.dropdown-menu::-webkit-scrollbar-thumb {
+  background: #888; /* Scrollbar color */
+  border-radius: 4px; /* Rounded scrollbar */
+}
+
+.dropdown-menu::-webkit-scrollbar-thumb:hover {
+  background: #555; /* Scrollbar hover color */
+}
+
+/* Optional: Ensure dropdown aligns well with the navbar */
+.navbar .dropdown-menu {
+  margin-top: 0; /* Removes extra gap between navbar and dropdown */
+}
+
+/* Optional: Add padding to dropdown items for better spacing */
+.dropdown-menu .dropdown-item {
+  padding: 10px 15px;
+  font-size: 14px;
+}
+
 
