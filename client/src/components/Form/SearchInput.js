@@ -21,6 +21,7 @@ const SearchInput = () => {
   return (
     <div>
       <form className="d-flex me-auto py-1" role="search" onSubmit={handleSubmit}>
+        <div className="search">
         <input
           className="form-control me-2"
           type="search"
@@ -32,6 +33,7 @@ const SearchInput = () => {
         <button className="btn btn-outline-success" type="submit">
           Search
         </button>
+        </div>
       </form>
     </div>
   );
