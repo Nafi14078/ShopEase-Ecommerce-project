@@ -162,10 +162,13 @@
 .card-text {
   font-size: 1rem; 
   color: #666; 
-  /*overflow: hidden;
-  text-overflow: ellipsis; 
-  white-space: nowrap; */
+ 
 }
+.card-text-price{
+  color: green;
+  font-weight: bold;
+}
+
 .btn-style{
   display: flex;
   justify-content: center;
@@ -213,5 +216,32 @@
 .search{
   display: flex;
 }
+.banner-img {
+  margin-top: 10px;
+}
+.home-page h1 {
+  color:#000000;
+  font-family: "Playfair Display", serif;
+}
+.cart-page {
+  margin-top: 30px;
+}
+.cart-page h1 {
+  padding: 15px !important;
+  font-family: "roboto", sans-serif;
+  font-weight: normal;
+  background-color: rgba(0, 0, 255, 0.072) !important;
+}
+.cart-page h1 > p {
+  font-size: 20px;
+  margin-top: 10px;
+}
+.filters h4 {
+  margin-top: 100px;
+  color: gray !important;
+  border-bottom: 1px solid rgba(128, 128, 128, 0.337);
+}
+
+
 
 
