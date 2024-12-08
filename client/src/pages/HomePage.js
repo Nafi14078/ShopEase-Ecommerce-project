@@ -108,8 +108,14 @@ const HomePage = () => {
   };
   return (
     <Layout title={"Home page-All Products"}>
-      <div className="row mt-3">
-        <div className="col-md-3">
+       <img
+        src="/images/banner.png"
+        className="banner-img"
+        alt="bannerimage"
+        width={"100%"}
+      />
+      <div className="container-fluid row mt-3 home-page">
+        <div className="col-md-3 filters">
           <h4 className="text-center">Filter By Category</h4>
           <div className="d-flex flex-column">
             <div className="table-responsive">
@@ -195,7 +201,7 @@ const HomePage = () => {
                   <p className="card-text">
                     {p.description.substring(0, 30)}...
                   </p>
-                  <p className="card-text"> $ {p.price}</p>
+                  <p className="card-text-price"> $ {p.price}</p>
                   <div className="btn-style">
                     <button
                       class="btn btn-primary ms-1"
