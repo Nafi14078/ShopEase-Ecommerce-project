@@ -52,7 +52,7 @@ const Login = () => {
   };
 
   return (
-    <GoogleOAuthProvider clientId="269849876704-gruqg4fumvme1ctlnfumn0s0qq3c9lqn.apps.googleusercontent.com">
+    <GoogleOAuthProvider clientId="process.env.GOOGLE_CLIENT_ID">
       <Layout title="Login - Ecommer App">
         <div className="form-container" style={{ minHeight: "90vh" }}>
           <form onSubmit={handleSubmit}>
