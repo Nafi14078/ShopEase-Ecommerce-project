@@ -14,12 +14,7 @@ const About = () => {
         </div>
         <div className="col-md-4">
           <p className="text-justify mt-2">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus
-            officiis obcaecati esse tempore unde ratione, eveniet mollitia,
-            perferendis eius temporibus dicta blanditiis doloremque explicabo
-            quasi sunt vero optio cum aperiam vel consectetur! Laborum enim
-            accusantium atque, excepturi sapiente amet! Tenetur ducimus aut
-            commodi illum quidem neque tempora nam.
+            ShopEase is a leading e-commerce platform that connects buyers and sellers from all over the world. Our mission is to provide a seamless shopping experience for our customers while empowering small businesses to thrive in the digital marketplace. With a wide range of products and services, we strive to meet the diverse needs of our customers and help them find exactly what they are looking for. 
           </p>
         </div>
       </div>
