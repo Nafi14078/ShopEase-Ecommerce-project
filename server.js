@@ -9,6 +9,12 @@ import productRoutes from "./routes/productRoutes.js";
 import userRoutes from "./routes/userRoute.js";
 import cors from 'cors'
 
+
+const paymentRoutes = require('./routes/paymentRoutes');
+
+// After other app.use()
+app.use('/api/payment', paymentRoutes);
+
 //configure env
 dotenv.config();
 
