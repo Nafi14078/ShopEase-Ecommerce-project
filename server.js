@@ -8,8 +8,9 @@ import categoryRoutes from './routes/categoryRoutes.js';
 import productRoutes from "./routes/productRoutes.js";
 import userRoutes from "./routes/userRoute.js";
 import cors from 'cors';
-import passport from './config/passportConfig.js';
 import session from 'express-session';
+import passport from './config/passportConfig.js';
+import { googleAuthCallback } from './controllers/googleAuth.js'; // ✅ Google callback controller
 
 // Configure env
 dotenv.config();
@@ -20,14 +21,17 @@ connectDB();
 const app = express();
 
 // Middlewares
-app.use(cors());
+app.use(cors({
+    origin: 'http://localhost:3000',
+    credentials: true
+}));
 app.use(express.json());
 app.use(morgan('dev'));
 
 // Session middleware for passport
 app.use(
     session({
-        secret: process.env.SESSION_SECRET,
+        secret: process.env.SESSION_SECRET || 'defaultsecret',
         resave: false,
         saveUninitialized: false,
     })
@@ -46,10 +50,8 @@ app.get('/auth/google', passport.authenticate('google', { scope: ['profile', 'em
 
 app.get(
     '/auth/google/callback',
-    passport.authenticate('google', { failureRedirect: '/' }),
-    (req, res) => {
-        res.redirect('/dashboard'); // Redirect after successful login
-    }
+    passport.authenticate('google', { failureRedirect: 'http://localhost:3000/login-failure' }),
+    googleAuthCallback // ✅ redirect with token handled here
 );
 
 app.get('/auth/logout', (req, res) => {

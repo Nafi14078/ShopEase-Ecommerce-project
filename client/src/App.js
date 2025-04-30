@@ -25,6 +25,7 @@ import Categories from "./pages/Categories";
 import CategoryProduct from "./pages/CategoryProduct";
 import CartPage from "./pages/CartPage";
 import AdminOrders from './pages/Admin/AdminOrders';
+import GoogleSuccess from "./pages/Auth/GoogleSuccess";  // Already imported
 
 function App() {
   return (
@@ -36,11 +37,13 @@ function App() {
         <Route path="/cart" element={<CartPage />} />
         <Route path="/category/:slug" element={<CategoryProduct />} />
         <Route path="/search" element={<Search />} />
+        
         <Route path="/dashboard" element={<PrivateRoute />}>
           <Route path="user" element={<Dashboard />} />
           <Route path="user/orders" element={<Orders />} />
           <Route path="user/profile" element={<Profile />} />
         </Route>
+
         <Route path="/dashboard" element={<AdminRoute />}>
           <Route path="admin" element={<AdminDashboard />} />
           <Route path="admin/create-category" element={<CreateCategory />} />
@@ -51,12 +54,16 @@ function App() {
           <Route path="admin/orders" element={<AdminOrders />} />
         </Route>
 
+        {/* ✅ Public Auth and Utility Routes */}
         <Route path="/register" element={<Register />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/login-success" element={<GoogleSuccess />} /> {/* ✅ Added route */}
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/policy" element={<Policy />} />
+
+        {/* 404 Fallback */}
         <Route path="*" element={<Pagenotfound />} />
       </Routes>
     </>
@@ -64,3 +71,4 @@ function App() {
 }
 
 export default App;
+

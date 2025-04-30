@@ -9,48 +9,33 @@ import {
   getAllOrdersController,
   orderStatusController,
 } from "../controllers/authController.js";
-import { isAdmin, requireSignIn } from "../middlewares/authMiddleware.js";
 
-//router object
+import { googleAuthCallback } from "../controllers/googleAuth.js"; // ✅ NEW
+import { isAdmin, requireSignIn } from "../middlewares/authMiddleware.js";
+import passport from "../config/passportConfig.js";
+
 const router = express.Router();
 
-//routing
-//REGISTER || METHOD POST
+// === Regular Auth Routes ===
 router.post("/register", registerController);
-
-//LOGIN || POST
 router.post("/login", loginController);
-
-//Forgot Password || POST
 router.post("/forgot-password", forgotPasswordController);
-
-//test routes
-router.get("/test", requireSignIn, isAdmin, testController);
-
-//protected User route auth
-router.get("/user-auth", requireSignIn, (req, res) => {
-  res.status(200).send({ ok: true });
-});
-//protected Admin route auth
-router.get("/admin-auth", requireSignIn, isAdmin, (req, res) => {
-  res.status(200).send({ ok: true });
-});
-
-//update profile
 router.put("/profile", requireSignIn, updateProfileController);
 
-//orders
+// === Order Routes ===
 router.get("/orders", requireSignIn, getOrdersController);
-
-//all orders
 router.get("/all-orders", requireSignIn, isAdmin, getAllOrdersController);
+router.put("/order-status/:orderId", requireSignIn, isAdmin, orderStatusController);
 
-// order status update
-router.put(
-  "/order-status/:orderId",
-  requireSignIn,
-  isAdmin,
-  orderStatusController
-);
+// === Auth Check Routes ===
+router.get("/user-auth", requireSignIn, (req, res) => res.status(200).send({ ok: true }));
+router.get("/admin-auth", requireSignIn, isAdmin, (req, res) => res.status(200).send({ ok: true }));
+
+// === Test Route ===
+router.get("/test", requireSignIn, isAdmin, testController);
+
+// === Google Auth Routes ===
+router.get("/google", passport.authenticate("google", { scope: ["profile", "email"] }));
+router.get("/google/callback", passport.authenticate("google", { failureRedirect: "/login-failure" }), googleAuthCallback); // ✅ NEW
 
 export default router;
