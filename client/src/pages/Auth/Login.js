@@ -79,7 +79,7 @@ const Login = () => {
           </div>
           
           <div className="mb-3">
-          <button type="button" className="btn btn-primary" onClick={()=>{navigate(`${process.env.REACT_APP_API}/forgot-password`)}}>
+          <button type="button" className="btn btn-primary" onClick={()=>{navigate('/forgot-password')}}>
             Forgot Password
           </button>
 
