@@ -19,7 +19,7 @@ const Login = () => {
    const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("/api/v1/auth/login", {
+      const res = await axios.post(`${process.env.REACT_APP_API}/api/v1/auth/login`, {
         
         email,
         password,
@@ -79,7 +79,7 @@ const Login = () => {
           </div>
           
           <div className="mb-3">
-          <button type="button" className="btn btn-primary" onClick={()=>{navigate('/forgot-password')}}>
+          <button type="button" className="btn btn-primary" onClick={()=>{navigate(`${process.env.REACT_APP_API}/forgot-password`)}}>
             Forgot Password
           </button>
 

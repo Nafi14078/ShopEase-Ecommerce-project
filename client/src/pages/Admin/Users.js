@@ -10,7 +10,7 @@ const Users = () => {
   // Fetch users from the server
   const fetchUsers = async () => {
     try {
-      const { data } = await axios.get("/api/v1/admin/users"); // Replace with your endpoint
+      const { data } = await axios.get(`${process.env.REACT_APP_API}/api/v1/admin/users`); // Replace with your endpoint
       if (data.success) {
         setUsers(data.users);
       } else {
