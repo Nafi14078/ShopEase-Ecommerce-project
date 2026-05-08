@@ -14,7 +14,7 @@
   "author": "Nafi",
   "license": "MIT",
   "dependencies": {
-    "bcrypt": "^5.1.1",
+    "bcryptjs": "^3.0.3",
     "braintree": "^3.26.0",
     "colors": "^1.4.0",
     "concurrently": "^9.1.0",
