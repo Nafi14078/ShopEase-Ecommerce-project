@@ -109,7 +109,7 @@ const HomePage = () => {
   return (
     <Layout title={"Home page-All Products"}>
        <img
-        src={`${process.env.REACT_APP_API}/images/banner.png`}
+        src={`/images/banner.png`}
         className="banner-img"
         alt="bannerimage"
         width={"100%"}
